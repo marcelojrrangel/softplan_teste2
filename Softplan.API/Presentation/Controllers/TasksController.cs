@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Softplan.API.Presentation.DTOs;
+using Softplan.API.Application.DTOs;
 using Softplan.API.Application.Commands;
 using Softplan.API.Application.Queries;
 using System.Collections.Generic;

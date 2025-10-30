@@ -2,7 +2,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Softplan.API.Application.Commands;
-using Softplan.API.Presentation.DTOs;
+using Softplan.API.Application.DTOs;
 using Softplan.API.Domain.Interfaces;
 using TaskEntity = Softplan.API.Domain.Entities.Task;
 using System.Linq;

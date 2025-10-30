@@ -11,7 +11,8 @@ using Softplan.API.Infrastructure.Data;
 using Softplan.API.Domain.Interfaces;
 using Softplan.API.Infrastructure.Repositories;
 using Softplan.API.Application.Handlers;
-using Softplan.API.Presentation.DTOs;
+using Softplan.API.Application.Commands;
+using Softplan.API.Application.DTOs;
 using Softplan.API;
 
 [assembly: InternalsVisibleTo("Softplan.API.IntegrationTests")]
@@ -38,7 +39,7 @@ public partial class Program
         builder.Services.AddDbContext<DataContext>(options =>
             options.UseInMemoryDatabase("TaskDb"));
         builder.Services.AddControllers();
-        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateTaskCommand).Assembly));
         builder.Services.AddProblemDetails();
 
 

@@ -1,7 +1,7 @@
 using FluentValidation;
 using TaskEntity = Softplan.API.Domain.Entities.Task;
 
-namespace Softplan.API.Presentation.DTOs
+namespace Softplan.API.Application.DTOs
 {
     public class TaskValidator : AbstractValidator<TaskEntity>
     {

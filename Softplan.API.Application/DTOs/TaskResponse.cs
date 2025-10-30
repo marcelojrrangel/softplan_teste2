@@ -1,4 +1,4 @@
-namespace Softplan.API.Presentation.DTOs
+namespace Softplan.API.Application.DTOs
 {
     public class TaskResponse
     {

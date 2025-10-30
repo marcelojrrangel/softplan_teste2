@@ -1,6 +1,6 @@
 using TaskEntity = Softplan.API.Domain.Entities.Task;
 
-namespace Softplan.API.Presentation.DTOs
+namespace Softplan.API.Application.DTOs
 {
     public static class TaskMapper
     {

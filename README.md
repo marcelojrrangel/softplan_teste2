@@ -2,6 +2,22 @@
 
 Esta é uma API para gerenciamento de tarefas, desenvolvida como parte de um teste técnico. Inclui autenticação JWT, versionamento de API, logging estruturado, validação de dados, DTOs, Unit of Work, health checks e mais.
 
+## Arquitetura
+
+O projeto segue a arquitetura hexagonal (ports and adapters) com as seguintes camadas:
+
+- **Domain**: Contém as entidades de negócio e interfaces do domínio (Task, ITaskRepository, IUnitOfWork, etc.).
+- **Application**: Camada de aplicação com Commands, Queries e Handlers usando MediatR para implementar CQRS (Command Query Responsibility Segregation).
+- **Infrastructure**: Implementações concretas dos repositórios, contexto de banco de dados e Unit of Work.
+- **Presentation**: Controllers, DTOs, validações e mapeamentos para a API REST.
+
+### CQRS com MediatR
+
+- **Commands**: CreateTaskCommand, CompleteTaskCommand, DeleteTaskCommand
+- **Queries**: GetTasksByUserQuery
+- **Handlers**: Implementam a lógica de negócio para cada comando/query
+- O controlador injeta IMediator e envia mensagens ao invés de chamar use cases diretamente.
+
 ## Pré-requisitos
 
 *   [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) ou superior.
@@ -24,7 +40,7 @@ Esta é uma API para gerenciamento de tarefas, desenvolvida como parte de um tes
 
 3. **Logging**: Serilog configurado para console e arquivo (`logs/log-.txt`).
 
-4. **Pacotes Adicionados**: FluentValidation, Serilog, JWT Bearer, API Versioning, Health Checks.
+4. **Pacotes Adicionados**: FluentValidation, Serilog, JWT Bearer, API Versioning, Health Checks, MediatR.
 
 ## Executando a API
 

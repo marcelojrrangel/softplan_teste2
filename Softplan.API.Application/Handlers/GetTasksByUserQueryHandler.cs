@@ -1,7 +1,7 @@
 using MediatR;
 using Softplan.API.Application.Queries;
 using Softplan.API.Domain.Interfaces;
-using Softplan.API.Presentation.DTOs;
+using Softplan.API.Application.DTOs;
 using TaskEntity = Softplan.API.Domain.Entities.Task;
 using System.Collections.Generic;
 using System.Linq;

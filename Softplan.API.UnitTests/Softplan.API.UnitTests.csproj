@@ -21,7 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Softplan.API\Softplan.API.csproj" />
+    <ProjectReference Include="..\Softplan.API.Application\Softplan.API.Application.csproj" />
+    <ProjectReference Include="..\Softplan.API.Domain\Softplan.API.Domain.csproj" />
+    <ProjectReference Include="..\Softplan.API.Infrastructure\Softplan.API.Infrastructure.csproj" />
+    <ProjectReference Include="..\Softplan.API\Softplan.API.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

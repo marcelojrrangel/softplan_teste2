@@ -1,5 +1,5 @@
 using MediatR;
-using Softplan.API.Presentation.DTOs;
+using Softplan.API.Application.DTOs;
 using System;
 
 namespace Softplan.API.Application.Commands

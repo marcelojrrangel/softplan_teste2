@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Softplan.API.Presentation</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,11 +12,15 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.10" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.10" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Softplan.API.Application\Softplan.API.Application.csproj" />
+    <ProjectReference Include="..\Softplan.API.Domain\Softplan.API.Domain.csproj" />
+    <ProjectReference Include="..\Softplan.API.Infrastructure\Softplan.API.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
