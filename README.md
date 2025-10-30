@@ -97,3 +97,26 @@ O projeto segue a arquitetura hexagonal (ports and adapters) organizada em proje
    ```
 
 Executa testes unitários (`Softplan.API.UnitTests`) e integração (`Softplan.API.IntegrationTests`).
+
+## Cobertura de Testes
+
+### Relatório de Cobertura
+Para gerar e visualizar o relatório de cobertura de testes:
+
+1. Execute o script de cobertura:
+   ```powershell
+   .\generate-coverage.ps1
+   ```
+
+2. Abra o relatório no navegador:
+   - Arquivo: `coverage-report/index.html`
+   - Mostra cobertura por linha, ramo e método
+   - **Cobertura atual**: ~91%
+
+### Detalhes Técnicos
+- **Ferramentas**: Coverlet (coleta) + ReportGenerator (relatório HTML)
+- **Projetos cobertos**: Domain, Application, Infrastructure, Presentation
+- **Tipos de teste**: Unitários (19 testes) + Integração (4 testes)
+- **Métricas**: Linhas, ramos, métodos e classes cobertas
+
+O relatório ajuda a identificar código não testado e melhorar a qualidade geral do projeto.
