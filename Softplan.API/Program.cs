@@ -42,8 +42,6 @@ public partial class Program
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateTaskCommand).Assembly));
         builder.Services.AddProblemDetails();
 
-
-
         builder.Services.AddScoped<ITaskRepository, TaskRepository>();
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
