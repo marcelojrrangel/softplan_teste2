@@ -134,6 +134,7 @@ public class TaskRepositoryTests : IDisposable
         var newTitle = "Título Atualizado";
 
         // Act
+        Assert.NotNull(taskToUpdate);
         taskToUpdate.Title = newTitle;
         _repository.Update(taskToUpdate); // Marca como modificado
         await _unitOfWork.SaveChangesAsync(); // Persiste a mudança
@@ -153,6 +154,7 @@ public class TaskRepositoryTests : IDisposable
         var initialCount = await _context.Tasks.CountAsync(); // 3
 
         // Act
+        Assert.NotNull(taskToDelete);
         _repository.Delete(taskToDelete); // Marca como deletado
         await _unitOfWork.SaveChangesAsync(); // Persiste a remoção
 
