@@ -4,12 +4,19 @@ Esta é uma API para gerenciamento de tarefas, desenvolvida como parte de um tes
 
 ## Arquitetura
 
-O projeto segue a arquitetura hexagonal (ports and adapters) com as seguintes camadas:
+O projeto segue a arquitetura hexagonal (ports and adapters) organizada em projetos separados para melhor isolamento e manutenção:
 
-- **Domain**: Contém as entidades de negócio e interfaces do domínio (Task, ITaskRepository, IUnitOfWork, etc.).
-- **Application**: Camada de aplicação com Commands, Queries e Handlers usando MediatR para implementar CQRS (Command Query Responsibility Segregation).
-- **Infrastructure**: Implementações concretas dos repositórios, contexto de banco de dados e Unit of Work.
-- **Presentation**: Controllers, DTOs, validações e mapeamentos para a API REST.
+### Estrutura de Projetos
+- **Softplan.API.Domain**: Entidades de negócio e interfaces do domínio (Task, ITaskRepository, IUnitOfWork, etc.).
+- **Softplan.API.Application**: Camada de aplicação com Commands, Queries, Handlers e DTOs usando MediatR para CQRS.
+- **Softplan.API.Infrastructure**: Implementações concretas dos repositórios, contexto de banco de dados e Unit of Work.
+- **Softplan.API.Presentation**: Controllers, validações e mapeamentos para a API REST.
+
+### Dependências
+- Domain: Não depende de outros projetos
+- Application: Depende de Domain
+- Infrastructure: Depende de Domain
+- Presentation: Depende de Application, Domain e Infrastructure
 
 ### CQRS com MediatR
 
@@ -40,11 +47,14 @@ O projeto segue a arquitetura hexagonal (ports and adapters) com as seguintes ca
 
 3. **Logging**: Serilog configurado para console e arquivo (`logs/log-.txt`).
 
-4. **Pacotes Adicionados**: FluentValidation, Serilog, JWT Bearer, API Versioning, Health Checks, MediatR.
+4. **Pacotes Adicionados**:
+   - **Application**: MediatR, FluentValidation, Microsoft.Extensions.Logging.Abstractions
+   - **Infrastructure**: Microsoft.EntityFrameworkCore.InMemory
+   - **Presentation**: Serilog.AspNetCore, Microsoft.AspNetCore.Authentication.JwtBearer, Microsoft.AspNetCore.Mvc.Versioning, Microsoft.AspNetCore.OpenApi, Microsoft.Extensions.Diagnostics.HealthChecks, Swashbuckle.AspNetCore
 
 ## Executando a API
 
-1. Navegue até `Softplan.API` e execute:
+1. Navegue até `Softplan.API.Presentation` e execute:
    ```sh
    dotnet run
    ```
@@ -81,7 +91,7 @@ O projeto segue a arquitetura hexagonal (ports and adapters) com as seguintes ca
 
 ## Executando os Testes
 
-1. Na raiz da solução (`softplan_teste`), execute:
+1. Na raiz da solução, execute:
    ```sh
    dotnet test
    ```
