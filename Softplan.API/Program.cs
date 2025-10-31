@@ -1,21 +1,15 @@
-using System.Runtime.CompilerServices;
 using System.Text;
 using FluentValidation;
-using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using Softplan.API.Infrastructure.Data;
-using Softplan.API.Domain.Interfaces;
-using Softplan.API.Infrastructure.Repositories;
-using Softplan.API.Application.Handlers;
+using Softplan.API;
 using Softplan.API.Application.Commands;
 using Softplan.API.Application.DTOs;
-using Softplan.API;
-
-[assembly: InternalsVisibleTo("Softplan.API.IntegrationTests")]
+using Softplan.API.Domain.Interfaces;
+using Softplan.API.Infrastructure.Data;
+using Softplan.API.Infrastructure.Repositories;
 
 public partial class Program
 {
