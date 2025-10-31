@@ -11,7 +11,7 @@ using Softplan.API.Domain.Interfaces;
 using Softplan.API.Infrastructure.Data;
 using Softplan.API.Infrastructure.Repositories;
 
-public partial class Program
+public class Program
 {
     public static void Main(string[] args)
     {
