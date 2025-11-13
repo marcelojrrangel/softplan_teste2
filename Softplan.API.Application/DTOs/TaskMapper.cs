@@ -4,16 +4,16 @@ namespace Softplan.API.Application.DTOs
 {
     public static class TaskMapper
     {
-    public static TaskEntity ToModel(string title, string? description, DateTime? dueDate, string userId)
-    {
-        return new TaskEntity
+        public static TaskEntity ToModel(string title, string? description, DateTime? dueDate, string userId)
         {
-            Title = title,
-            Description = description,
-            DueDate = dueDate,
-            UserId = userId
-        };
-    }
+            return new TaskEntity
+            {
+                Title = title,
+                Description = description,
+                DueDate = dueDate,
+                UserId = userId
+            };
+        }
 
         public static TaskResponse ToResponse(TaskEntity task)
         {

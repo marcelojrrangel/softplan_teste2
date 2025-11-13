@@ -1,14 +1,16 @@
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Softplan.API.Application.DTOs;
 using Softplan.API.Application.Commands;
+using Softplan.API.Application.DTOs;
 using Softplan.API.Application.Queries;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Softplan.API.Presentation.Controllers
 {
@@ -31,13 +33,17 @@ namespace Softplan.API.Presentation.Controllers
         public async Task<ActionResult<TaskResponse>> CreateTask(CreateTaskRequest request)
         {
             try
-            {
+            {                
+
+                var loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
                 var command = new CreateTaskCommand
                 {
                     Title = request.Title,
                     Description = request.Description,
                     DueDate = request.DueDate,
-                    UserId = request.UserId
+                    //UserId = request.UserId
+                    UserId = loggedInUserId ?? request.UserId
                 };
                 var result = await _mediator.Send(command);
                 return CreatedAtAction(nameof(CreateTask), new { userId = result.UserId }, result);
